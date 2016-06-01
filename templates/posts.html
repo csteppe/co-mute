@@ -1,0 +1,102 @@
+<div class='container'>
+  <h1>Available Car Pools</h1>
+  <form role='form'>
+    <div class='form-group '>
+      
+       
+        
+          
+		  
+		  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Add Car Pool</button>
+        
+     
+    </div>
+  </form>
+  <ul class='list-group'>
+    <li ng-repeat="post in posts | orderBy:'-date'" class='list-group-item'>
+      
+	  <div class="panel panel-default">
+	  <button type="button" class="btn btn-primary  pull-right">Join</button>
+    <div class="panel-heading">
+	
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion">
+        <strong>Driver:</strong> {{ post.username }}</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <ul class="list-group">
+  <li class="list-group-item"><strong>Deperature:</strong> {{ post.departure }}</li>
+  <li class="list-group-item"><strong>Arrival:</strong> {{ post.arrival }}</li>
+  <li class="list-group-item"><strong>Origin Address:</strong> {{ post.origin }}</li>
+  <li class="list-group-item"><strong>Days Available:</strong> {{ post.days }}</li>
+  <li class="list-group-item"><strong>Destination:</strong> {{ post.destination }}</li>
+  <li class="list-group-item"><strong>Seats Available:</strong> {{ post.seats }}</li>
+  <li class="list-group-item"><strong>Notes:</strong> {{ post.notes }}</li>
+  <li class="list-group-item"><strong>People Currently in This Carpool:</strong> {{ post.notes }}</li>
+</ul>
+
+    </div>
+	
+	
+	</br>
+  </div>
+    
+  </ul>
+  
+  
+  
+  
+  <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" >Add Carpool</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add a carpool</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+      <label>Deperature</label>
+      <input class="form-control" type="time" ng-model="departure">
+    </div>
+    <div class="form-group">
+      <label>Arrival</label>
+      <input class="form-control" type="time" ng-model="arrival">
+    </div>
+	<div class="form-group">
+      <label>Origin</label>
+      <input class="form-control" type="text" ng-model="origin">
+    </div>
+	<div class="form-group">
+      <label>Days Available</label>
+      <input class="form-control" type="number" ng-model="days">
+    </div>
+	<div class="form-group">
+      <label>Destination</label>
+      <input class="form-control" type="text" ng-model="destination">
+    </div>
+	<div class="form-group">
+      <label>Seats</label>
+      <input class="form-control" type="number" ng-model="seats">
+    </div>
+	<div class="form-group">
+      <label>Notes</label>
+      <textarea class="form-control" rows="5" ng-model="notes"></textarea>
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button ng-click='addPost()' class='btn btn-default'>Add Post</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+  
+  
+</div>
